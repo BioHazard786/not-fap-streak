@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { getLeaderboard } from "@/server/actions";
 import { Crown, Flame, Medal, Target, Trophy, Zap } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { ReactElement } from "react";
 
@@ -308,7 +309,7 @@ export default async function LeaderboardPage() {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Leaderboard - No-Fap Streak Tracker",
   description:
     "See who's leading the no-fap journey and get motivated by the community.",

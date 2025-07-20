@@ -38,7 +38,7 @@ export function getDateDifference(startDate: string) {
  * Get today's date in ISO format (YYYY-MM-DD)
  */
 export function getTodayISOString(): string {
-  return new Date().toISOString().split("T")[0];
+  return new Date().toISOString();
 }
 
 /**
