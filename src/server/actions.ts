@@ -1,6 +1,6 @@
 "use server";
 
-import { getDb } from "@/lib/db";
+import { getDbAsync } from "@/lib/db";
 import {
   getTodayISOString,
   hashSecret,
@@ -60,7 +60,7 @@ export async function createUser(
     }
 
     // Check if username already exists
-    const db = getDb();
+    const db = await getDbAsync();
     const existingUser = await db
       .select()
       .from(users)
@@ -117,7 +117,7 @@ export async function getUserByUsername(username: string): Promise<
       return { success: false, error: "Invalid username format" };
     }
 
-    const db = getDb();
+    const db = await getDbAsync();
     const result = await db
       .select({
         id: users.id,
@@ -163,7 +163,7 @@ export async function resetStreak(
       return { success: false, error: "Invalid username format" };
     }
 
-    const db = getDb();
+    const db = await getDbAsync();
 
     // Get user with secret
     const userResult = await db
@@ -237,7 +237,7 @@ export async function updateProfile(
       return { success: false, error: "Invalid username format" };
     }
 
-    const db = getDb();
+    const db = await getDbAsync();
 
     // Get user with secret
     const userResult = await db
@@ -294,7 +294,7 @@ export async function getLeaderboard(limit: number = 50): Promise<
     // Ensure limit is reasonable
     const safeLimit = Math.min(Math.max(1, limit), 1000); // Between 1 and 1000
 
-    const db = getDb();
+    const db = await getDbAsync();
     const result = await db
       .select({
         username: users.username,
