@@ -62,8 +62,18 @@ export default function HomePage() {
           </CardContent>
         </Card>
 
-        <div className="text-center">
-          <p className="text-white/60 text-sm">Made with ❤️ for your journey</p>
+        <div className="text-center text-white/60 flex items-center justify-center gap-2">
+          <p className="text-white/60 text-sm">Made with ❤️ for your journey</p>{" "}
+          •{" "}
+          <Link
+            href="https://github.com/BioHazard786/not-fap-streak"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Github Repository"
+            className="text-white/60 hover:underline text-sm"
+          >
+            Github
+          </Link>
         </div>
       </div>
     </div>
